@@ -1,0 +1,204 @@
+
+
+@media screen and (max-width: 1200px) {
+    .main-content{
+        width: 50%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        margin-left: 2em;
+        overflow-y: hidden;
+        display: flex;
+    
+    }
+    .nav-items li{
+        padding: 1em;
+    }
+
+    .side-content{
+        width: 20em;
+        position: fixed;
+        right: 2em;
+        top: 5em;
+        transition: top 0.3s ease;
+    
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .main-content{
+        width: 50%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        margin-left: 1em;
+        overflow-y: hidden;
+        display: flex;
+    
+    }
+  
+    .nav-search input{
+        width: 15em;
+        margin-left: -7em;
+      
+    }
+
+    .side-content{
+        font-size: 0.9em;
+        width: 16em;
+        right: 2em;
+        top: 5em;
+    
+    }
+  }
+  @media screen and (max-width: 690px) {
+    
+    .nav-search input{
+        width: 12em;
+        margin-left: -8em;
+      
+    }
+  }
+
+
+  @media screen and (max-width: 640px) {
+    .main-content{
+        width: 90%;
+        height: 100%;
+        margin-left: 1em;
+    }
+    .like-comment{
+        margin-left: 62%
+    }
+
+    .nav-search input{
+        display: none;
+      
+    }
+    .logo{
+        font-size: 2em;
+        left: 20px;
+    }
+   
+    .user-stories-container{
+        margin: 5em 1em 1em 2em; /* Top and bottom margins, and auto for left and right margins */
+        width: 90%;
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    .side-content{
+        display: none;
+    
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .bottom-nav-bar-container {
+        display: flex;
+    }
+    .story-user-profile{
+        min-width: 55px;
+        min-height: 55px;
+       margin-left: 0.5em;
+       padding: 4px;
+    }
+    .newsfeed-user-post{
+        width: 80%;
+    }
+    .uploader-profile{
+        width: 50px;
+        height: 50px;
+    }
+
+    .uploader-username{
+        font-size: 0.9em;
+    
+    }
+    
+    .sub-context{
+ 
+        font-size: 0.9em;
+
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .to-hide{
+        display: none;
+    }
+
+    .nav-search{
+        position: absolute;
+        align-self: center;
+        color: white;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .nav-search input{
+        margin-left: 0;
+        height: 2em;
+        width: 20em;
+    }
+
+    .nav-items li{
+        display: flex;
+        padding: 1em;
+    }
+    .nav-items li a{
+        font-size: 1.2em;
+    }
+    .nav-items{
+        display: flex;
+        justify-content: flex-end; /* Align items to the end of the container */
+        position: absolute;
+        right: -5em;
+    }
+    
+  }
+
+  @media screen and (max-width: 561px) {
+    .nav-search input{
+        width: 12em;
+    }
+
+    .main-content{
+        min-width: 110%;
+        overflow-x:hidden ;
+        margin-left: -2em;
+    }
+    .photo-uploaded{
+        margin-left: 0;
+    }
+    .user-stories-container{
+        margin-left: 1em;
+    }
+    .newsfeed{
+        padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .nav-search{
+        display: none;
+    }
+    .nav-items{
+        right: -4em;
+    }
+    .uploader-username{
+        margin-left: 4em;
+    }
+    .sub-context{
+        margin-left: 4em;
+    }
+    .comments-container{
+        font-size: 0.95em;
+    }
+    .uploader-profile{
+        margin-left: 0;
+    }
+    .user-stories-container{
+        margin-top: 3.5em;
+    }
+  
+    
+  }
