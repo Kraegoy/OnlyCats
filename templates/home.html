@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/styles.css' %}"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Only Cats</title>
+    <script src="{% static 'JS/index.js' %}"></script>
+  </head>
+  <body>
+    {% include 'nav.html' %} {% include 'stories.html' %}
+
+    <div class="main-content">
+      <div class="newsfeed">
+        <div class="newsfeed-user-post">
+          <div class="uploader-profile">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="profile-pic"
+            />
+          </div>
+          <span class="uploader-username">Avila Kraeg </span>
+          <span class="sub-context">Avila Kraeg </span>
+
+          <div class="uploaded-content">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="photo-uploaded"
+            />
+            <button class="icon-button like-button">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="icon-button comment-button">
+              <i class="fas fa-comment"></i>
+            </button>
+            <button class="icon-button share-button">
+              <i class="fas fa-share"></i>
+            </button>
+          </div>
+          <div class="comments-container">
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="newsfeed-user-post">
+          <div class="uploader-profile">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="profile-pic"
+            />
+          </div>
+          <span class="uploader-username">Avila Kraeg </span>
+          <span class="sub-context">Avila Kraeg </span>
+
+          <div class="uploaded-content">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="photo-uploaded"
+            />
+            <button class="icon-button like-button">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="icon-button comment-button">
+              <i class="fas fa-comment"></i>
+            </button>
+            <button class="icon-button share-button">
+              <i class="fas fa-share"></i>
+            </button>
+          </div>
+          <div class="comments-container">
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="newsfeed-user-post">
+          <div class="uploader-profile">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="profile-pic"
+            />
+          </div>
+          <span class="uploader-username">Avila Kraeg </span>
+          <span class="sub-context">Avila Kraeg </span>
+
+          <div class="uploaded-content">
+            <img
+              src="./media/profile_pics/default.png"
+              alt="User Profile Picture"
+              class="photo-uploaded"
+            />
+            <button class="icon-button like-button">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="icon-button comment-button">
+              <i class="fas fa-comment"></i>
+            </button>
+            <button class="icon-button share-button">
+              <i class="fas fa-share"></i>
+            </button>
+          </div>
+          <div class="comments-container">
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+            <div class="comment">
+              <img
+                src="./media/profile_pics/default.png"
+                alt="User Profile Picture"
+                class="comment-profile-pic"
+              />
+              <p class="comment-text">This is a comment</p>
+              <button class="like-comment"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-content">
+
+        <div class="loggedin-user-profile">
+            <img src="./media/profile_pics/default.png" alt="User Profile Picture">
+            <span class="loggedin-username">Kraeg Avila </span>
+            <span class="loggedin-user-info">Kraeg Avila </span>
+        </div>
+
+        <div class="suggestions">
+            <p class="suggestions-for-you">Suggestions For You</p>
+            <a href="#" class="see-all-suggestions">See all </a>
+
+            <div class="suggested-user">
+                <img src="./media/profile_pics/default.png" alt="User Profile Picture" class="suggested-user-profile">
+                <span class="suggested-user-username">Kraeg Pogi</span>
+                <span class="suggested-user-info">Follows You</span>
+                <a href="#" class="follow-button">Follow </a>
+            </div>
+
+            <div class="suggested-user">
+                <img src="./media/profile_pics/default.png" alt="User Profile Picture" class="suggested-user-profile">
+                <span class="suggested-user-username">Pedro Penduko</span>
+                <span class="suggested-user-info">Follows You</span>
+                <a href="#" class="follow-button">Follow </a>
+
+            </div>
+
+            <div class="suggested-user">
+                <img src="./media/profile_pics/default.png" alt="User Profile Picture" class="suggested-user-profile">
+                <span class="suggested-user-username">Elon Musk</span>
+                <span class="suggested-user-info">Follows You</span>
+                <a href="#" class="follow-button">Follow </a>
+
+            </div>
+
+            <div class="suggested-user">
+                <img src="./media/profile_pics/default.png" alt="User Profile Picture" class="suggested-user-profile">
+                <span class="suggested-user-username">Elon Musk</span>
+                <span class="suggested-user-info">Follows You</span>
+                <a href="#" class="follow-button">Follow </a>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="social-icons">
+                <a href="#">About</a>
+                <a href="#">Help</a>
+                <a href="#">FAQ</a>
+                <a href="#">Language</a>
+            </div>
+            <p style="color: rgba(255, 255, 255, 0.667); ">&copy; OnlyCats Avila Kraeg. All Rights Reserved.</p>
+            <p><a href="#" style="color: #007BFF;">Privacy Policy</a> | <a href="#" style="color: #007BFF;">Terms of Service</a></p>
+        </footer>
+      </div>
+    </div>
+
+
+
+    <script>
+        let lastScrollTop = 0;
+        const navBar = document.querySelector('.nav-bar-container');
+        const sideContent = document.querySelector('.side-content');
+      
+      
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+            if (scrollTop > lastScrollTop) {
+                // Scroll down
+                navBar.classList.add('hidden');
+                sideContent.style.top = "3em";
+            } else {
+                // Scroll up
+                navBar.classList.remove('hidden');
+                sideContent.style.top = "5em"
+
+      
+            }
+            lastScrollTop = scrollTop;
+        });
+      </script>
+  </body>
+</html>
