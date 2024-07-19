@@ -29,8 +29,8 @@ body{
     width: 70%;
     height: 100%;
     background-color: rgb(0, 0, 0);
-    margin-left: 5em;
-    overflow-y: hidden;
+    margin-left: 2em;
+    overflow: hidden;
     display: flex;
 
 }
@@ -39,6 +39,7 @@ body{
     margin-bottom: 2em;
     width: 100%;
     margin-left: 3em;
+    overflow-x: hidden;
 
 }
 .uploader-profile{
@@ -59,10 +60,15 @@ body{
     object-fit: cover; 
 }
 
+.uploaded-content{
+    max-width: 45em;
+}
 .photo-uploaded{
-    margin-top: 0.5em;
     width: 100%;
-    object-fit: fill; 
+    margin-top: 0.5em;
+    border-radius: 6px;
+    object-fit: cover; 
+
 }
 .uploader-username{
     color: white;
@@ -125,6 +131,7 @@ body{
     cursor: pointer;
     margin-left: 29%
 }
+
 
 
 .side-content{
