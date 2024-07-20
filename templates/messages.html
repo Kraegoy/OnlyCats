@@ -13,158 +13,160 @@ href="{% static 'styles/messages_responsive.css' %}"
 
 <div class="messages-container">
 
-    <div class="chats-snippet">
-        <span class="back-home" onclick=hideMessages()>&#8592; </span>
-        <span class="chats-span">Chats </span>
-        <div class="messages-search"><input type="text" class="search" placeholder="Search... "> </input></div>
+    <div class="messages-holder">
+        <div class="chats-snippet">
+            <span class="back-home" onclick=hideMessages()>&#8592; </span>
+            <span class="chats-span">Chats </span>
+            <div class="messages-search"><input type="text" class="search" placeholder="Search... "> </input></div>
 
-        <div class="individual-chats-container">
+            <div class="individual-chats-container">
 
-            <div class="individual-chats">
-                <span class="individual-chat-username">Avila Kraeg</span>
-                <span class="individual-chat-snippet-content">Igop mo pala kraeg hahahha...</span>
-            <img
-            src="./media/profile_pics/555.jpg"
-            alt="User Profile Picture"
-            class="chat-snippet-profile-pic"
-            />
-             </div>
+                <div class="individual-chats">
+                    <span class="individual-chat-username">Avila Kraeg</span>
+                    <span class="individual-chat-snippet-content">EtUK mo pala kr4eg hahahha... walang titibag bente kwatro </span>
+                <img
+                src="./media/profile_pics/555.jpg"
+                alt="User Profile Picture"
+                class="chat-snippet-profile-pic"
+                />
+                </div>
 
-             <div class="individual-chats">
-                <span class="individual-chat-username">Avila Kraeg</span>
-                <span class="individual-chat-snippet-content">Igop mo pala kraeg hahahha...</span>
+                <div class="individual-chats">
+                    <span class="individual-chat-username">Avila Kraeg</span>
+                    <span class="individual-chat-snippet-content">Igop mo pala kraeg hahahha...</span>
+                <img
+                src="./media/profile_pics/777.jpg"
+                alt="User Profile Picture"
+                class="chat-snippet-profile-pic"
+                />
+                </div>
+
+                <div class="individual-chats">
+                    <span class="individual-chat-username">Avila Kraeg</span>
+                    <span class="individual-chat-snippet-content">Igop mo pala kraeg hahahha...</span>
+                <img
+                src="./media/profile_pics/222.jpg"
+                alt="User Profile Picture"
+                class="chat-snippet-profile-pic"
+                />
+                </div>
+
+                <div class="individual-chats">
+                    <span class="individual-chat-username">Laufey</span>
+                    <span class="individual-chat-snippet-content">Promise mamatay man</span>
+                <img
+                src="./media/profile_pics/111.jpg"
+                alt="User Profile Picture"
+                class="chat-snippet-profile-pic"
+                />
+                </div>
+
+                <div class="individual-chats">
+                    <span class="individual-chat-username">Elon Musk</span>
+                    <span class="individual-chat-snippet-content">Padala ako jan bukas 200k</span>
+                <img
+                src="./media/profile_pics/4444.jpg"
+                alt="User Profile Picture"
+                class="chat-snippet-profile-pic"
+                />
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="loaded-chat">
             <img
             src="./media/profile_pics/777.jpg"
             alt="User Profile Picture"
-            class="chat-snippet-profile-pic"
+            class="loaded-chat-profile-pic"
             />
-             </div>
+            <span class="loaded-chat-username">Avila Kraeg</span>
+            <span class="loaded-chat-call"><i class="fas fa-phone"></i></span>
+            <span class="loaded-chat-videocall"><i class="fas fa-video"></i></span>  
+            <span class="loaded-chat-ellipsis" onclick=showUserInfo()><i class="fas fa-ellipsis-h"></i></span>
+        
 
-             <div class="individual-chats">
-                <span class="individual-chat-username">Avila Kraeg</span>
-                <span class="individual-chat-snippet-content">Igop mo pala kraeg hahahha...</span>
-            <img
-            src="./media/profile_pics/222.jpg"
-            alt="User Profile Picture"
-            class="chat-snippet-profile-pic"
-            />
-             </div>
+            <div class="loaded-chat-messages">
+                <div class="your-messages">
+                    wag ka munang magalit
+                </div>
+                
+                <div class="friends-messages">
+                    <img
+                    src="./media/profile_pics/777.jpg"
+                    alt="User Profile Picture"
+                    class="loaded-chat-profile-pic-content"
+                    />
+                    <div class="friends-message-content">
+                        ako sana'y pakinggan
+                    </div>
+                </div>
+                <div class="friends-messages">
+                    <img
+                    src="./media/profile_pics/777.jpg"
+                    alt="User Profile Picture"
+                    class="loaded-chat-profile-pic-content"
+                    />
+                    <div class="friends-message-content">
+                        hindi ko balak na ika'y saktan 
+                    </div>
+                </div>
 
-             <div class="individual-chats">
-                <span class="individual-chat-username">Laufey</span>
-                <span class="individual-chat-snippet-content">Promise mamatay man</span>
-            <img
-            src="./media/profile_pics/111.jpg"
-            alt="User Profile Picture"
-            class="chat-snippet-profile-pic"
-            />
-             </div>
+                <div class="your-messages">
+                    hindi ikaw ang problema
+                </div>
 
-             <div class="individual-chats">
-                <span class="individual-chat-username">Elon Musk</span>
-                <span class="individual-chat-snippet-content">Padala ako jan bukas 200k</span>
-            <img
-            src="./media/profile_pics/4444.jpg"
-            alt="User Profile Picture"
-            class="chat-snippet-profile-pic"
-            />
-             </div>
+                <div class="your-messages">
+                    wala akong iba
+                </div>
 
-        </div>
-
-
-    </div>
-
-    <div class="loaded-chat">
-        <img
-        src="./media/profile_pics/777.jpg"
-        alt="User Profile Picture"
-        class="loaded-chat-profile-pic"
-        />
-        <span class="loaded-chat-username">Avila Kraeg</span>
-        <span class="loaded-chat-call"><i class="fas fa-phone"></i></span>
-        <span class="loaded-chat-videocall"><i class="fas fa-video"></i></span>  
-        <span class="loaded-chat-ellipsis" onclick=showUserInfo()><i class="fas fa-ellipsis-h"></i></span>
-      
-
-        <div class="loaded-chat-messages">
-            <div class="your-messages">
-                wag ka munang magalit
+                <div class="friends-messages">
+                    <img
+                    src="./media/profile_pics/777.jpg"
+                    alt="User Profile Picture"
+                    class="loaded-chat-profile-pic-content"
+                    />
+                    <div class="friends-message-content">
+                    di tulad ng iyong hinala
+                    </div>
+                </div>
+                
             </div>
-            
-            <div class="friends-messages">
-                <img
-                src="./media/profile_pics/777.jpg"
-                alt="User Profile Picture"
-                class="loaded-chat-profile-pic-content"
-                />
-                <div class="friends-message-content">
-                    ako sana'y pakinggan
+            <div class="message-input">
+                <div class="message-input-holder">
+                <span class="chat-loaded-emoji"><i class="fas fa-plus"></i></span>
+                <span class="chat-loaded-emoji"><i class="fas fa-paperclip"></i></span>
+                <span class="chat-loaded-emoji"><i class="fas fa-camera"></i></span>
+                <span class="chat-loaded-emoji"><i class="fas fa-file-image"></i></span>
+                <input type="text" placeholder="Aa" class="messages-input-input"> </input>
+                <div class="chat-emoji"><i class="fas fa-thumbs-up"></i></div>
                 </div>
             </div>
-            <div class="friends-messages">
-                <img
-                src="./media/profile_pics/777.jpg"
-                alt="User Profile Picture"
-                class="loaded-chat-profile-pic-content"
-                />
-                <div class="friends-message-content">
-                    hindi ko balak na ika'y saktan 
-                </div>
-            </div>
+    
 
-            <div class="your-messages">
-                hindi ikaw ang problema
-            </div>
-
-            <div class="your-messages">
-                wala akong iba
-            </div>
-
-            <div class="friends-messages">
-                <img
-                src="./media/profile_pics/777.jpg"
-                alt="User Profile Picture"
-                class="loaded-chat-profile-pic-content"
-                />
-                <div class="friends-message-content">
-                   di tulad ng iyong hinala
-                </div>
-            </div>
-            
-        </div>
-        <div class="message-input">
-            <div class="message-input-holder">
-            <span class="chat-loaded-emoji"><i class="fas fa-plus"></i></span>
-            <span class="chat-loaded-emoji"><i class="fas fa-paperclip"></i></span>
-            <span class="chat-loaded-emoji"><i class="fas fa-camera"></i></span>
-            <span class="chat-loaded-emoji"><i class="fas fa-file-image"></i></span>
-            <input type="text" placeholder="Aa" class="messages-input-input"> </input>
-            <div class="chat-emoji"><i class="fas fa-thumbs-up"></i></div>
-             </div>
-        </div>
-   
-
-
-    </div>
-
-
-    <div class="loaded-chat-user-info">
-        <img
-        src="./media/profile_pics/777.jpg"
-        alt="User Profile Picture"
-        class="loaded-chat-user-info-profile-pic"
-        />
-        <span class="loaded-chat-user-info-username">Avila Kraeg</span>
-
-        <div class="user-info-lists">
-            <div class="loaded-chat-user-info-customize">Customize Chat </div>
-            <div class="loaded-chat-user-info-media">Media, Files, and Links</div>
-            <div class="loaded-chat-user-info-privacy">Privacy and Support</div>
 
         </div>
 
-    </div>
+
+        <div class="loaded-chat-user-info">
+            <img
+            src="./media/profile_pics/777.jpg"
+            alt="User Profile Picture"
+            class="loaded-chat-user-info-profile-pic"
+            />
+            <span class="loaded-chat-user-info-username">Avila Kraeg</span>
+
+            <div class="user-info-lists">
+                <div class="loaded-chat-user-info-customize">Customize Chat </div>
+                <div class="loaded-chat-user-info-media">Media, Files, and Links</div>
+                <div class="loaded-chat-user-info-privacy">Privacy and Support</div>
+
+            </div>
+
+        </div>
+</div>
 
 
 

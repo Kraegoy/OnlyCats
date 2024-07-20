@@ -2,17 +2,15 @@
     .message-input input{
         width: 44%;
     }
-    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
-        margin-top: 4.5em;
+    .messages-holder{
+        margin-top: 4em;
     }
+
 }
 
 @media screen and (max-width: 900px) {
     .chat-loaded-emoji{
         font-size: 1.2em;
-    }
-    .individual-chats-container{
-        margin-top: 16vh;
     }
     .chats-span{
         font-size: 1.5em;
@@ -24,9 +22,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
-        margin-top: 4em;
-    }
+  
     .loaded-chat-call{
         right: 6em;
     }
@@ -42,7 +38,7 @@
     .loaded-chat-user-info {
         width: 22vw;
     }
-
+ 
 }
 @media screen and (max-width: 780px) {
     .loaded-chat-user-info {
@@ -61,9 +57,7 @@
         font-size: 0.95em;
     }
 
-    .loaded-chat-call, .loaded-chat-videocall, .loaded-chat-ellipsis{
-        font-size: 0.9em;
-    }
+   
     .loaded-chat-messages{
         font-size: 0.95em;
     }
@@ -141,6 +135,7 @@
     }
 }
 @media screen and (max-width: 580px) {
+
     .chats-span{
         font-size: 1.2em;
         margin-top: 0.5em;
@@ -156,30 +151,51 @@
         width: 52vw;
 
     }
+     .messages-holder{
+        margin-top: 6em;
+    }
+    
 
    
 }
 
 
 @media screen and (max-width: 490px) {
-    .individual-chat-snippet-content, .individual-chat-username{
-        display: none;
+ 
+    .chats-snippet{
+        width: 85vw;
+        margin-left: 2em;
     }
-    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
-        margin-top: 6em;
+    .individual-chats{
+        width: 79vw;
+    }
+    .individual-chat-username{
+        margin-left: 4em;
+    }
+    .individual-chat-snippet-content{
+        margin-left: 4em;
+        width: 70vw;
+        font-size: 1em;
+        border-bottom: 1px solid rgba(255, 228, 196, 0.117);
+
     }
     .messages-search input {
         width: 9vw;
     }
+
     .chats-span{
-        display: none;
+        font-size: 2em;
+        margin-top: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
-    .chats-snippet{
-        width: 15vw;
+    .messages-search input{
+        width: 60vw;
     }
+    
     .loaded-chat{
-        width: 70vw;
-        margin-top: 15vh;
+        display: none;
     }
     .loaded-chat-profile-pic{
         width: 45px;
@@ -189,14 +205,16 @@
         width: 30px;
         height: 30px;
     }
+    .chat-snippet-profile-pic{
+        width: 50px;
+        height: 50px;
+    }
 
 }
 
 
 @media screen and (max-width: 370px) {
-    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
-        margin-top: 6em;
-    }
+ 
     .messages-search input{
         margin-left: -0.5em;
     }
@@ -213,19 +231,25 @@
     .friends-messages {
         max-width: 55vw;
     }
+    .chats-snippet{
+        margin-left: 1em;
+    }
 }
 
 @media screen and (max-width: 335px) {
    
     .chat-snippet-profile-pic{
-        width: 33px;
-        height: 33px;
+        width: 45px;
+        height: 45px;
+    }
+    .chats-snippet{
+        margin-left: 0;
     }
 }
 
 @media screen and (max-width: 300) {
     *{
-        font-size: 0.2em;
+        font-size: 0.2  em;
     } 
 }
 

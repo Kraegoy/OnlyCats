@@ -9,16 +9,39 @@
     display: flex;
     overflow: hidden;
 }
+.messages-holder{
+    margin-top: 2em;
+    position: relative;
+    height: 92vh;
+    width: 94vw;
+    display: flex;
+}
 
 .chats-snippet{
-    margin-top: 6em;
     height: 92vh;
     width: 27vw;
     margin-left: 1em;
     border-radius: 1em;
     border: 1px solid rgba(255, 255, 255, 0.22);
     position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+
+.loaded-chat{
+    width: 42vw;
+    margin-left: 1em;
+    border-radius: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    position: relative;
+    transition: width 0.3s ease;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+
 
 .back-home{
     color: white;
@@ -40,20 +63,6 @@
     left: 50%;
     transform: translate(-50%);
 }
-
-
-
-.loaded-chat{
-    margin-top: 6em;
-    height: 92vh;
-    width: 42vw;
-    margin-left: 1em;
-    border-radius: 1em;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    position: relative;
-    transition: width 0.3s ease;
-}
-
 
 .messages-search{
     position: absolute;
@@ -81,9 +90,9 @@
 }
 
 .individual-chats-container{
-    height: 80vh;
+    height: 70vh;
     width: 28vw;
-    margin-top: 14vh;
+    margin-top: 20vh;
 }
 .individual-chats{
     height: 3.5em;
@@ -214,8 +223,9 @@
 }
 .message-input-holder{
     position: relative;
-    margin-bottom: 1em;
     width: 100%;
+    background-color: black;
+    bottom: 1em;
 }
 .message-input input{
     background-color: rgb(39, 39, 39);
@@ -255,7 +265,6 @@
 
 }
 .loaded-chat-user-info{
-    margin-top: 6em;
     height: 92vh;
     width: 24vw;
     margin-left: 1em;
