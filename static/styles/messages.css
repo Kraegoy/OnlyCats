@@ -1,0 +1,294 @@
+.messages-container{
+    height: 200vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    position: fixed;
+    margin-top: 100vh;
+    transition: margin-top 0.6s ease;
+    display: flex;
+    overflow: hidden;
+}
+
+.chats-snippet{
+    margin-top: 6em;
+    height: 92vh;
+    width: 27vw;
+    margin-left: 1em;
+    border-radius: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    position: relative;
+}
+
+.back-home{
+    color: white;
+    font-size: 2em;
+    padding: 0.5em;
+    padding-top: 0.2em;
+    position: absolute;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.chats-span{
+    color: white;
+    font-size: 2em;
+    padding: 0.5em;
+    padding-top: 0.2em;
+    position: absolute;
+    font-weight: bolder;
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+
+.loaded-chat{
+    margin-top: 6em;
+    height: 92vh;
+    width: 42vw;
+    margin-left: 1em;
+    border-radius: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    position: relative;
+    transition: width 0.3s ease;
+}
+
+
+.messages-search{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.715);
+    margin-top: 3.5em;
+    margin-left: 1em;
+
+}
+.messages-search input{
+    background-color: black;
+    height: 2em;
+    width: 20vw;
+    border: 1px solid rgba(245, 245, 245, 0.181);
+    border-radius: 2px;
+    color: white    ;
+}
+
+.messages-search input::placeholder {
+    color: white; 
+    font-style: italic; 
+    position: absolute;
+    opacity: 0.8;
+    margin-left: 2%;
+}
+
+.individual-chats-container{
+    height: 80vh;
+    width: 28vw;
+    margin-top: 14vh;
+
+}
+.individual-chats{
+    height: 3.5em;
+    width: 24vw;
+    position: relative;
+    display: block;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.individual-chats:hover{
+    background-color: rgba(128, 128, 128, 0.526);
+}
+
+.chat-snippet-profile-pic{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+}
+.individual-chat-username{
+    position: absolute;
+    color: white;
+    margin-left: 3.5em;
+    margin-top: 0.5em;
+}
+.individual-chat-snippet-content{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.83);
+    margin-left: 3.7em;
+    margin-top: 1.6em;
+}
+
+
+.loaded-chat-profile-pic{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    padding: 0.7em;
+}
+
+.loaded-chat-username{
+    position: absolute;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    font-weight: bold;
+
+}
+.loaded-chat-messages{
+    display: flex;
+    flex-direction: column;
+}
+
+.your-messages {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 166, 0);
+    align-self: flex-end; /* Aligns to the right */
+    padding: 0.5em;
+    border-radius: 12px 12px 12px 12px;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+
+.friends-messages {
+    color: white;
+    align-self: flex-start; /* Aligns to the left */
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    display: flex;
+    max-width: 25vw;
+}
+.friends-message-content{
+    background-color: rgb(19, 19, 19);
+    padding: 0.5em;
+    border-radius: 12px 12px 12px 12px;
+}
+
+.loaded-chat-profile-pic-content{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 0.2em;
+}
+
+.loaded-chat-call{
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    margin-top: 1.7em;
+    cursor: pointer;
+    right: 8em;
+
+}
+
+.loaded-chat-videocall{
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    margin-top: 1.7em;
+    cursor: pointer;
+    right: 5em;
+
+}
+.loaded-chat-ellipsis{
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    margin-top: 1.7em;
+    cursor: pointer;
+    right: 2em;
+}
+
+.message-input{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.715);
+    bottom: 1em;
+    display: flex;
+
+}
+.message-input input{
+    background-color: rgb(39, 39, 39);
+    height: 2.5em;
+    width: 23vw;
+    border: 1px solid rgba(245, 245, 245, 0.181);
+    border-radius: 10px;
+    color: white    ;
+    margin-left: 1em;
+    margin-top: -0.5em;
+    transition: width 0.3s ease;
+}
+
+.message-input input::placeholder {
+    color: white; 
+    font-style: italic; 
+    position: absolute;
+    opacity: 0.8;
+    margin-left: 2%;
+}
+.chat-loaded-emoji{
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 1em;
+   
+}
+
+
+.loaded-chat-user-info{
+    margin-top: 6em;
+    height: 92vh;
+    width: 24vw;
+    margin-left: 1em;
+    border-radius: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    position: relative;
+}
+
+.loaded-chat-user-info-profile-pic{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 0.2em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 1em;
+}
+
+.loaded-chat-user-info-username{
+    padding: 0.2em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 1em;
+    color: white;
+    font-weight: bold;
+    margin-top: 4em;
+    font-size: 1.5em;
+}
+
+.user-info-lists{
+    color: white;
+    font-size: 1.1em;
+    display: block;
+    height: 30vh;
+    width: 90%;
+    position: absolute;
+    top: 25vh;
+    padding: 1em;
+}
+.user-info-lists div{
+    margin-bottom: 1em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+
+}
+.user-info-lists div:hover{
+    background-color: rgba(128, 128, 128, 0.658);
+}
