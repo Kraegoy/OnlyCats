@@ -19,12 +19,14 @@
 
 
     <title>Only Cats</title>
-    <script src="{% static 'JS/index.js' %}"></script>
   </head>
   <body>
-    {% include 'nav.html' %} {% include 'stories.html' %}
+    <div class="body-container">
+      {% include 'messages.html' %}
+    {% include 'nav.html' %} {% include 'stories.html' %} 
 
     <div class="main-content">
+
       <div class="newsfeed">
         <div class="newsfeed-user-post">
           <div class="uploader-profile">
@@ -36,6 +38,7 @@
           </div>
           <span class="uploader-username">Avila Kraeg </span>
           <span class="sub-context">Avila Kraeg </span>
+          <span class="ellipsis"><i class="fas fa-ellipsis-h"></i></span>
 
           <div class="uploaded-content">
             <img
@@ -85,6 +88,7 @@
           </div>
           <span class="uploader-username">Avila Christian </span>
           <span class="sub-context">Avila Christian </span>
+          <span class="ellipsis"><i class="fas fa-ellipsis-h"></i></span>
 
           <div class="uploaded-content">
 
@@ -142,6 +146,7 @@
           </div>
           <span class="uploader-username">Avila Kraeg </span>
           <span class="sub-context">Avila Kraeg </span>
+          <span class="ellipsis"><i class="fas fa-ellipsis-h"></i></span>
 
           <div class="uploaded-content">
             <img
@@ -238,31 +243,9 @@
         </footer>
       </div>
     </div>
+  </div>
+  
+  <script src="{% static 'JS/index.js' %}"></script>
 
-
-
-    <script>
-        let lastScrollTop = 0;
-        const navBar = document.querySelector('.nav-bar-container');
-        const sideContent = document.querySelector('.side-content');
-      
-      
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-            if (scrollTop > lastScrollTop) {
-                // Scroll down
-                navBar.classList.add('hidden');
-                sideContent.style.top = "3em";
-            } else {
-                // Scroll up
-                navBar.classList.remove('hidden');
-                sideContent.style.top = "5em"
-
-      
-            }
-            lastScrollTop = scrollTop;
-        });
-      </script>
   </body>
 </html>

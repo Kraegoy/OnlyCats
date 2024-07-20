@@ -202,3 +202,24 @@
   
     
   }
+
+  @media screen and (max-width: 425px) {
+    .comment-profile-pic{
+        width: 30px;
+        height: 30px;
+    }
+    .like-comment{
+        font-size: 1em;
+    }
+    .icon-button{
+        font-size: 1.1em;
+    }
+  }
+
+
+  @media screen and (max-width: 265px) {
+    .ellipsis{
+        margin-left: 7em;
+        font-size: 1.6em;
+    }
+  }

@@ -50,7 +50,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1em;
 }
 
 
@@ -70,20 +69,35 @@ body{
     object-fit: cover; 
 
 }
+.ellipsis{
+    color: rgb(177, 177, 177);
+    position: absolute;
+    margin-top: -1em;
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: 7.5em;
+
+}
+.ellipsis:hover{
+    color: white;
+}
 .uploader-username{
     color: white;
     position: absolute;
     margin-top: -3em;
-    margin-left: 6em;
+    margin-left: 4.5em;
     font-weight: bold;
     font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
 }
+
 
 .sub-context{
     color: rgba(255, 255, 255, 0.651);
     position: absolute;
     margin-top:  -1.5em;
-    margin-left: 6em;
+    margin-left: 4.5em;
     font-style: italic;
 }
 
@@ -97,7 +111,7 @@ body{
 }
 
 .icon-button:hover {
-    color: #ffffff;
+    color: #ff6565;
 }
 .comment{
     margin-bottom: 1em;
@@ -130,6 +144,9 @@ body{
     color: #b1b1b1;
     cursor: pointer;
     margin-left: 29%
+}
+.like-comment:hover{
+    color: #ff6565;
 }
 
 
@@ -202,6 +219,7 @@ body{
     margin-top: 0.5em;
     margin-left: 0.3em;
     font-weight: bold;
+    cursor: pointer;
 }
 .suggested-user-info{
     color: rgba(255, 255, 255, 0.596);
