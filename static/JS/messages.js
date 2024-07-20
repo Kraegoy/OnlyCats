@@ -2,23 +2,37 @@ const chatUserInfo = document.querySelector('.loaded-chat-user-info');
 const loadedChat = document.querySelector('.loaded-chat');
 const messagesInput = document.querySelector('.messages-input-input');
 
-
 let userInfo = true;
 
-
-function showUserInfo(){
-    if(userInfo){
-        chatUserInfo.style.display = 'none';
-        loadedChat.style.width ='67vw';
-        messagesInput.style.width = "48vw";
+function showUserInfo() {
+    if (userInfo) {
+        chatUserInfo.classList.remove('show');
+        chatUserInfo.classList.add('hide');
+        loadedChat.style.width = '67vw';
         userInfo = false;
-    }
-    else{
-        chatUserInfo.style.display = 'block';
-        loadedChat.style.width ='42vw';
-        messagesInput.style.width = "23vw";
+    } else {
+        chatUserInfo.classList.remove('hide');
+        chatUserInfo.classList.add('show');
+        loadedChat.style.width = '42vw';
         userInfo = true;
-
     }
-
 }
+
+// Ensure the correct styles are applied when the window is resized
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 647) {
+        chatUserInfo.classList.remove('show');
+        chatUserInfo.classList.add('hide');
+        loadedChat.style.width = '100vw'; // or another suitable width for small screens
+    } else {
+        if (userInfo) {
+            chatUserInfo.classList.remove('hide');
+            chatUserInfo.classList.add('show');
+            loadedChat.style.width = '42vw';
+        } else {
+            chatUserInfo.classList.remove('show');
+            chatUserInfo.classList.add('hide');
+            loadedChat.style.width = '67vw';
+        }
+    }
+});

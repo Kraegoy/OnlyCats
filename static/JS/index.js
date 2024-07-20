@@ -2,12 +2,11 @@ let lastScrollTop = 0;
 const navBar = document.querySelector('.nav-bar-container');
 const sideContent = document.querySelector('.side-content');
 const messagesContainer = document.querySelector('.messages-container');
-let messages = true;
+let messages = false;
 
 if(messages){
     navBar.classList.add('hidden');
 }
-
     navBar.classList.remove('hidden');
 
     window.addEventListener('scroll', () => {
@@ -32,10 +31,10 @@ if(messages){
 function showMessages(){
     messages = true;
     messagesContainer.style.marginTop = '-20vh';
-    navBar.classList.add('hidden');
+    navBar.style.display = "none";
 }
 
 function hideMessages(){
-    navBar.classList.remove('hidden');
+    navBar.style.display = "block";
     messagesContainer.style.marginTop = '100vh';
 }
