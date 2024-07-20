@@ -23,7 +23,7 @@ window.addEventListener('resize', function() {
     if (window.innerWidth <= 647) {
         chatUserInfo.classList.remove('show');
         chatUserInfo.classList.add('hide');
-        loadedChat.style.width = '100vw'; // or another suitable width for small screens
+        loadedChat.style.width = '100vw'; 
     } else {
         if (userInfo) {
             chatUserInfo.classList.remove('hide');

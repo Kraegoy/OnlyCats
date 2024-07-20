@@ -1,6 +1,6 @@
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
     .main-content{
         width: 50%;
         height: 100%;
@@ -34,6 +34,12 @@
         display: flex;
     
     }
+    .story-user-profile{
+        min-width: 55px;
+        min-height: 55px;
+       margin-left: 0.5em;
+       padding: 4px;
+    }
   
     .nav-search input{
         width: 15em;
@@ -56,6 +62,7 @@
         margin-left: -8em;
       
     }
+  
   }
 
 
@@ -217,9 +224,4 @@
   }
 
 
-  @media screen and (max-width: 265px) {
-    .ellipsis{
-        margin-left: 7em;
-        font-size: 1.6em;
-    }
-  }
+ 

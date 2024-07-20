@@ -13,7 +13,8 @@ href="{% static 'styles/responsive.css' %}"
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <div class="nav-bar-container">
-  <div class="logo">OnlyCats</div>
+  <div class="logo" onclick=""><a href="{% url 'home' %}" style="text-decoration: none; color: white">OnlyCats</a></div>
+
   <div class="nav-search"><input type="text" class="search" placeholder="Search... "> </input></div>
 
 

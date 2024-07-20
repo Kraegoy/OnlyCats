@@ -32,9 +32,11 @@ function showMessages(){
     messages = true;
     messagesContainer.style.marginTop = '-20vh';
     navBar.style.display = "none";
+ 
 }
 
 function hideMessages(){
+    messages = false;
     navBar.style.display = "block";
     messagesContainer.style.marginTop = '100vh';
 }

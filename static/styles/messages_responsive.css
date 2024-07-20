@@ -1,0 +1,231 @@
+@media screen and (max-width: 1180px) {
+    .message-input input{
+        width: 44%;
+    }
+    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
+        margin-top: 4.5em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .chat-loaded-emoji{
+        font-size: 1.2em;
+    }
+    .individual-chats-container{
+        margin-top: 16vh;
+    }
+    .chats-span{
+        font-size: 1.5em;
+    }
+    .individual-chat-snippet-content{
+        font-size: 0.9em;
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
+        margin-top: 4em;
+    }
+    .loaded-chat-call{
+        right: 6em;
+    }
+    .loaded-chat-videocall{
+        right: 3.5em;
+    }
+    .loaded-chat-ellipsis{
+        right: 1.53em;
+    }
+    .user-info-lists {
+        font-size: 0.9em;
+    }
+    .loaded-chat-user-info {
+        width: 22vw;
+    }
+
+}
+@media screen and (max-width: 780px) {
+    .loaded-chat-user-info {
+        width: 20vw;
+    }
+
+}
+
+@media screen and (max-width: 675px) {
+   
+    .loaded-chat-user-info-username{
+        font-size: 1.2em;
+        margin-top: 5.4em;
+    }
+    .loaded-chat-username{
+        font-size: 0.95em;
+    }
+
+    .loaded-chat-call, .loaded-chat-videocall, .loaded-chat-ellipsis{
+        font-size: 0.9em;
+    }
+    .loaded-chat-messages{
+        font-size: 0.95em;
+    }
+    .chat-loaded-emoji{
+        font-size: 1.1em;
+  
+    }
+    .message-input input{
+        width: 35%;
+        height: 2em;
+    }
+  
+}
+
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+
+@media screen and (max-width: 647px) {
+    .loaded-chat-user-info {
+        display: none;
+    }
+   
+    .loaded-chat-ellipsis{
+        display: none;
+    }
+    .loaded-chat{
+        width: 58vw;
+    }
+    .chats-snippet{
+        width: 34vw;
+    }
+    .chat-snippet-profile-pic{
+        width: 40px;
+        height: 40px;
+    }
+    .individual-chat-username{
+        font-size: 0.95em;
+    }
+    .individual-chats{
+        width: 30vw;
+    }
+  
+  
+}
+
+
+
+@media screen and (max-width: 645px) {
+    .loaded-chat, .chats-snippet{
+        height: 80vh;
+    }
+    .loaded-chat{
+        width: 53vw;
+    }
+    .friends-messages {
+        max-width: 35vw;
+    }
+    .individual-chat-snippet-content{
+        width: 15vw;
+    }
+    .loaded-chat{
+        width: 48vw;
+    }
+}
+
+@media screen and (max-width: 621) {
+    .loaded-chat{
+        width: 48vw;
+    }
+}
+@media screen and (max-width: 580px) {
+    .chats-span{
+        font-size: 1.2em;
+        margin-top: 0.5em;
+    }
+    .messages-search input {
+        width: 22vw;
+    }
+    .individual-chats{
+        font-size: 0.9em;
+    }
+    .loaded-chat{
+        font-size: 0.9em;
+        width: 52vw;
+
+    }
+
+   
+}
+
+
+@media screen and (max-width: 490px) {
+    .individual-chat-snippet-content, .individual-chat-username{
+        display: none;
+    }
+    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
+        margin-top: 6em;
+    }
+    .messages-search input {
+        width: 9vw;
+    }
+    .chats-span{
+        display: none;
+    }
+    .chats-snippet{
+        width: 15vw;
+    }
+    .loaded-chat{
+        width: 70vw;
+        margin-top: 15vh;
+    }
+    .loaded-chat-profile-pic{
+        width: 45px;
+        height: 45px;
+    }
+    .loaded-chat-profile-pic-content{
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+
+@media screen and (max-width: 370px) {
+    .loaded-chat, .chats-snippet, .loaded-chat-user-info{
+        margin-top: 6em;
+    }
+    .messages-search input{
+        margin-left: -0.5em;
+    }
+
+    .messages-search input::placeholder {
+        font-size: 0.7em;
+    }
+    .chat-snippet-profile-pic{
+        margin-left: -0.5em;
+    }
+    .back-home{
+        font-size: 1.5em;
+    }
+    .friends-messages {
+        max-width: 55vw;
+    }
+}
+
+@media screen and (max-width: 335px) {
+   
+    .chat-snippet-profile-pic{
+        width: 33px;
+        height: 33px;
+    }
+}
+
+@media screen and (max-width: 300) {
+    *{
+        font-size: 0.2em;
+    } 
+}
+
