@@ -1,0 +1,1 @@
+python -m pip install // this is how to install in this venv

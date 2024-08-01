@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/user-profile.css' %}"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/styles.css' %}"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/responsive.css' %}"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <title>Only Cats</title>
+  </head>
+  <body>
+    {% include 'messages.html' %} {% include 'nav.html' %}
+    <div class="user-profile-container">
+      <div class="user-profile-pic-container">
+        <img
+          src="./media/profile_pics/default.png"
+          alt="User Profile Picture"
+          class="user-profile-pic"
+        />
+      </div>
+
+      <div class="user-profile-info-container">
+        <div class="user-top-info">
+          <span class="user-username"> Username </span>
+          <button>Edit Profile</button>
+        </div>
+
+        <div class="user-middle-info">
+          <span class="user-posts-count"> Posts Counts </span>
+          <span class="followers"> followers </span>
+          <span class="following"> following </span>
+          <p class="user-bio">bio of the user</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-highlights-container">
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/ccc.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/111.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/333.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/4444.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+      <div class="highlight-user-profile">
+        <img
+          src="./media/profile_pics/default.png"
+          alt="User Profile Picture"
+        />
+        <p class="highlight-text">highlight text</p>
+      </div>
+
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/111.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/222.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+      <div class="highlight-user-profile">
+        <img src="./media/profile_pics/333.jpg" alt="User Profile Picture" />
+        <p class="highlight-text">highlight text</p>
+      </div>
+    </div>
+
+    <div class="user-posts-container-parent">
+      <div class="user-posts-container">
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/333.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/111.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/222.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/4444.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/777.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/ccc.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/666.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/default.png"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+        <div class="user-post">
+          <img
+            src="./media/profile_pics/333.jpg"
+            alt="User Profile Picture"
+            class="user-post-front"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-nothing">
+    </div>
+
+    <script src="{% static 'JS/index.js' %}"></script>
+  </body>
+</html>

@@ -40,3 +40,36 @@ function hideMessages(){
     navBar.style.display = "block";
     messagesContainer.style.marginTop = '100vh';
 }
+
+const user_info_container = document.querySelector('.loggedin-user-profile');
+
+function displayUserInfo(){
+    fetch('display_user_info')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then( user_info => {
+        
+            const profile_pic = document.createElement('img')
+            profile_pic.src = user_info.user_info.profile_picture
+            profile_pic.alt = "user profile picture"
+
+            const loggedin_username = document.createElement('span')
+            loggedin_username.classList.add('loggedin-username')
+            loggedin_username.textContent = `@ ${user_info.user_info.username}`
+
+            const loggedin_user_fName = document.createElement('span')
+            loggedin_user_fName.classList.add('loggedin-full-name')
+            loggedin_user_fName.textContent = user_info.user_info.fullName
+
+            user_info_container.appendChild(profile_pic)
+            user_info_container.appendChild(loggedin_username)
+            user_info_container.appendChild(loggedin_user_fName)
+        }
+    )
+}
+
+displayUserInfo()

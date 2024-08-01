@@ -184,13 +184,14 @@ body{
     font-weight: bold;
 }
 
-.loggedin-user-info{
+.loggedin-full-name{
     position: absolute;
     margin-left: 0.6em;
-    margin-top: 2.3em;
+    margin-top: 2.5em;
     color: white;
     font-style: italic;
     font-size: 0.9em;
+    text-transform: capitalize;
 }
 
 .suggestions-for-you{
@@ -233,8 +234,9 @@ body{
     text-decoration: none;
     color: wheat;
     position: absolute;
-    margin-top: 1em;
-    right: 1em;
+    right: 0;
+    padding: 0.9em;
+    background-color: #000000;
 
 }
 

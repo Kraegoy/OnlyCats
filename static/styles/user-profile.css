@@ -1,0 +1,150 @@
+body{
+    background-color: black;
+}
+.user-profile-container{
+    width: 100%;
+    height: 100%;
+    margin-top: 5em;
+    color: white;
+    justify-content: center;
+    display: flex;
+
+}
+
+.user-profile-pic{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    padding: 1em;
+}
+
+.user-middle-info span{
+    padding: 2em;
+    padding-left: 0;
+}
+
+.user-top-info span{
+    padding: 2em;
+    padding-left: 0;
+}
+
+.user-top-info{
+    margin-bottom: 1em;
+}
+.user-bio{
+    padding: 2em;
+    padding-left: 0;
+}
+
+.user-username{
+    font-size: 1.4em;
+    padding-left: 0;
+}
+
+.user-highlights-container{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 3em;
+    display: flex;
+    overflow-x: scroll;
+    height: 10em;
+
+}
+
+.highlight-user-profile{
+    min-width: 70px;
+    height: 70px;
+    margin-left: 1em;
+    padding: 5px;
+}
+
+.highlight-user-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border: 3px solid wheat; 
+    border-radius: 50%;
+}
+
+.highlight-text{
+    color: white;
+    text-align: center;
+}
+
+.user-posts-container-parent{
+    display: flex;
+    justify-content: center;
+}
+.user-posts-container {
+    margin-top: 15em;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(1em, 1fr));
+    gap: 5px; 
+    width: 75%; 
+    justify-content: center;
+}
+
+.user-post {
+    grid-column: span 1;
+}
+
+.user-post-front{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-nothing{
+    height: 2em;
+}
+
+
+@media screen and (max-width: 900px) {
+    .user-profile-pic{
+        width: 8em;
+        height: 8em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .user-highlights-container{
+        width: 70%;
+    }
+    .highlight-text, .user-middle-info{
+        font-size: 0.9em;
+    }
+    .user-posts-container{
+        width: 80%;
+    }
+}
+
+
+
+@media screen and (max-width: 550px) {
+    .user-profile-pic{
+        width: 7em;
+        height: 7em;
+    }
+    .user-top-info{
+        font-size: 0.9em;
+    }
+    .highlight-text{
+        font-size: 0.85em;
+    }
+    .user-posts-container{
+        width: 90%;
+    }
+    .user-highlights-container{
+        width: 90%;
+        margin-top: 1em;
+    }
+
+}
+
+@media screen and (max-width: 490px) {
+    .user-posts-container{
+        width: 97%;
+    }
+}

@@ -60,7 +60,21 @@
     .nav-search input{
         width: 12em;
         margin-left: -8em;
-      
+      font-size: 0.9em;
+    }
+    .side-content{
+        width: 14em;
+    }
+    .suggested-user-profile{
+        width: 40px;
+        height: 40px;
+    }
+    .loggedin-user-profile img{
+        width: 60px;
+        height: 60px;
+    }
+    .loggedin-user-profile{
+        margin-left: 0;
     }
   
   }

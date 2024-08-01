@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/login.css' %}"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+
+    <title>Only Cats</title>
+  </head>
+  <body>
+
+    <h2>Signup! Welcome to Onlycats</h2>
+
+    <form method="POST" action="/signup" class="signup-form">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Username">
+        <br>
+        <label for="">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="First name">
+        <br>
+        <label for="">Last name</label>
+        <input type="text" id="LastName" name="lastName" placeholder="Last name">
+        <br>
+        <label for="">Email</label>
+        <input type="email" id="email" name="email" placeholder="email">
+        <br>
+        <label for="">Password</label>
+        <input type="Password" id="password" name="password" placeholder="password">
+        <br>
+        <label for="">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <button type="submit"><a href="/login">login</a></button>
+
+  
+  <script src="{% static 'JS/index.js' %}"></script>
+
+  </body>
+</html>

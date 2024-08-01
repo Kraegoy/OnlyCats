@@ -23,7 +23,11 @@ href="{% static 'styles/responsive.css' %}"
         <li><a href="#"><i class="fas fa-bell"></i></a></li>
         <li><a href="#" class="to-hide"><i class="fas fa-plus"></i></a></li>
         <li><a href="#" class="to-hide"><i class="fas fa-film"></i></a></li> <!-- Film reel icon -->
-        <li><a href="#" class="to-hide"><i class="fas fa-user"></i></a></li>
+        <li><a href="{% url 'user_view' %}" class="to-hide"><i class="fas fa-user"></i></a></li>
+        <li><a href="#" class="to-hide">{{username}}</a></li>
+
+        <li><a href="/logout" class="to-hide">logout</a></li>
+
       </div>
 
 </div>
