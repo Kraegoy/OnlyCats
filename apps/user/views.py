@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import UserProfile, UserPost, Comment
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.db.models import Q
+from django.views.decorators.http import require_POST
 
 
 @login_required
@@ -62,42 +63,6 @@ def get_user_posts(user):
 
     return posts
 
-def ajax_post_details(request, id):
-    if request.method == 'GET':
-        userPost = get_object_or_404(UserPost, id=id)
-        comments = userPost.comments.select_related('user__userprofile').prefetch_related('replies').all()
-        
-        comments_data = []
-        for comment in comments:
-            replies_data = [
-                {
-                    'username': reply.user.username,
-                    'content': reply.content,
-                    'created_at': reply.created_at,
-                    'profile_picture': reply.user.userprofile.profile_picture.url if reply.user.userprofile.profile_picture else ''
-                }
-                for reply in comment.replies.all()
-            ]
-            comments_data.append({
-                'username': comment.user.username,
-                'content': comment.content,
-                'created_at': comment.created_at,
-                'profile_picture': comment.user.userprofile.profile_picture.url if comment.user.userprofile.profile_picture else '',
-                'replies': replies_data
-            })
-        
-        post_info = {
-            'image': userPost.image.url,
-            'caption': userPost.caption,
-            'created_at': userPost.created_at,
-            'updated_at': userPost.updated_at,
-            'user_profile_picture': userPost.user.userprofile.profile_picture.url if userPost.user.userprofile.profile_picture else '',
-            'user': userPost.user.username,
-            'comments': comments_data,  # Include replies in comments data
-        }
-        return JsonResponse(post_info)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 def edit_profile(request):
     if request.method == 'POST':
@@ -153,3 +118,70 @@ def search_users(request):
 
         return JsonResponse({'results': user_list})
     return JsonResponse({'results': []})
+
+
+def ajax_post_details(request, id):
+    if request.method == 'GET':
+        userPost = get_object_or_404(UserPost, id=id)
+
+        def serialize_comment(comment):
+            # Log to verify the replies
+            replies = comment.replies.all()
+
+            return {
+                'id': comment.id,
+                'user': comment.user.username,
+                'profile_picture': comment.user.userprofile.profile_picture.url if comment.user.userprofile.profile_picture else '',
+                'content': comment.content,
+                'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                'replies': [serialize_comment(reply) for reply in replies]  # Recursively serialize replies
+            }
+
+        comments = userPost.comments.filter(parent__isnull=True)  # Only parent comments
+        user = request.user
+        if userPost.likes.filter(id=user.id).exists():
+            liked = False
+        else:
+            liked = True
+
+
+        post_info = {
+            'id': userPost.id,
+            'image': userPost.image.url,
+            'caption': userPost.caption,
+            'created_at': userPost.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+            'updated_at': userPost.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+            'user_profile_picture': userPost.user.userprofile.profile_picture.url if userPost.user.userprofile.profile_picture else '',
+            'user': userPost.user.username,
+            'comments': [serialize_comment(comment) for comment in comments],
+            'likes': userPost.likes.count(),
+            'liked': liked
+        }
+
+
+        return JsonResponse(post_info)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+
+@require_POST
+def like_post(request, post_id):
+    post = get_object_or_404(UserPost, id=post_id)
+    user = request.user
+
+    if user.is_authenticated:
+        if post.likes.filter(id=user.id).exists():
+            post.remove_like(user)
+            liked = False
+        else:
+            post.add_like(user)
+            liked = True
+
+        # Return JSON response with updated like count and status
+        return JsonResponse({
+            'liked': liked,
+            'likes_count': post.likes.count()
+        })
+    else:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)

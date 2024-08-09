@@ -5,6 +5,7 @@ from .views import(
     follow_user,
     search_users,
     ajax_post_details,
+    like_post,
 )
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     path('follow_user/<int:id>/', follow_user, name='follow_user'),
     path('ajax/post-details/<int:id>/', ajax_post_details, name='ajax_post_details'),
     path('search_users/', search_users, name='search_users'),
+    path('like-post/<int:post_id>/', like_post, name='like_post'),
 
 
 ]

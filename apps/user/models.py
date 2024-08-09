@@ -56,3 +56,5 @@ class Comment(models.Model):
     def remove_like(self, user):
         if self.likes.filter(id=user.id).exists():
             self.likes.remove(user)
+    class Meta:
+        ordering = ['created_at']

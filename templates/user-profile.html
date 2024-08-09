@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -178,7 +180,7 @@
           </div>
         </a>
         {% empty %}
-        <p>No posts available.</p>
+        <p class="zero-post">No posts available.</p>
         {% endfor %} {% endblock %}
       </div>
     </div>
@@ -202,15 +204,11 @@
                      <!-- Comments will be dynamically inserted here -->
               </div>
 
-              <div class="interact-to-post">
-                  <div class="interact-buttons">
-                    <span class="like-button"><i class="far fa-heart"></i></span>
-                    <span class="comment-button"><i class="far fa-comment"></i></span>
-                    <span class="share-button"><i class="far fa-paper-plane"></i></span>
-                  </div>
-                  <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+              <div class="interact-to-post" id='interact-to-post'>
+            
               </div>
         </div>
+
 
         {% endblock %}
         
@@ -219,6 +217,11 @@
     <div class="bottom-nothing"></div>
 
     <script src="{% static 'JS/userProfile.js' %}"></script>
-    <script src="{% static 'scripts/upload.js' %}"></script>
+    <script src="{% static 'JS/upload.js' %}"></script>
+    <script src="{% static 'JS/index.js' %}"></script>
+
   </body>
 </html>
+
+
+

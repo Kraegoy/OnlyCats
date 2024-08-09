@@ -49,6 +49,7 @@ function showSearchView(mobile=false){
 
     if(mobile){
         const nav_search_container = document.querySelector('.nav-search');
+        nav_search_container.classList.add('nav-search-mobile');
         nav_search_container.style.display = 'block';
         const nav_search_input = document.querySelector('.toshowlater');
         nav_search_input.style.display = 'block';
@@ -81,13 +82,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (query.length === 0) {
             resultsContainer.innerHTML = ''; 
             
-            const caption = document.createElement('div');
-            caption.classList.add('search-caption'); 
-            caption.textContent = 'Search for User...';
-            
-            resultsContainer.appendChild(caption); 
+            // Create a temporary container to hold the HTML string
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = `
+                <div class="cat">
+                    <div class="ear ear--left"></div>
+                    <div class="ear ear--right"></div>
+                    <div class="face">
+                        <div class="eye eye--left">
+                            <div class="eye-pupil"></div>
+                        </div>
+                        <div class="eye eye--right">
+                            <div class="eye-pupil"></div>
+                        </div>
+                        <div class="muzzle"></div>
+                    </div>
+                </div>
+                <div class="search-caption">
+                    Searching User...
+                </div>
+            `;
+        
+            // Append the temporary container's content to resultsContainer
+            resultsContainer.appendChild(tempDiv); 
             return;
         }
+        
 
         
 
@@ -152,7 +172,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function hideSearchView(){
+
     const searchView = document.querySelector('.search-container');
+    const nav_search_input = document.querySelector('.nav-search-mobile');
+    if(nav_search_input){
+        nav_search_input.style.display = 'none';
+    }
+
     searchView.style.display = 'none';
     document.body.style.overflow = 'scroll';
 }

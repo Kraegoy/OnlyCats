@@ -54,7 +54,7 @@ body{
     display: flex;
     overflow-x: scroll;
     height: 10em;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(55, 55, 55);
 
 }
 
@@ -117,6 +117,14 @@ body{
     z-index: 10000;
 }
 
+.zero-post{
+    color: white;
+    font-size: 1.2em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .edit-profile-button:hover{
     background-color: #000000;
     border: 1px solid #1f1f1f;
@@ -128,7 +136,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(49, 49, 49);
     height: auto;
     height: 50%;
     padding: 20px;
@@ -344,6 +352,8 @@ body{
 }
 
 
+
+
 .post-img-container {
     width: 55%;
     overflow: hidden; 
@@ -424,21 +434,26 @@ body{
 .post-comments-container{
     height: 58%;
     overflow-y: scroll;
-    border-bottom: 1px solid #5f5f5f7d;
     border-top: 1px solid #5f5f5f7d;
+    padding-top: 1em;
 }
+
+
 
 .post-comment-container{
     padding: 1em;
     padding-bottom: 0;
     padding-top: 0;
-    border-bottom: 1px solid #5f5f5f23;
 }
 .post-comment-user-details{
     display: flex;
     align-items: center;
 }
 
+.likes-count{
+    color: white;
+    font-size: 1em;
+}
 .comment-username{
     margin-right: 1em;
     font-weight: bold;
@@ -461,7 +476,7 @@ body{
 }
 
 .comment-interactions-container span{
-    padding: 1em;
+    padding: 0.5em;
     padding-top: 0;
     margin-top: -0.5em;
     color: rgb(128, 128, 128);
@@ -477,6 +492,8 @@ body{
     width: 100%;
     padding-top: 1em;
     cursor: pointer;
+    border-top: 1px solid #5f5f5f7d;
+    background-color: rgb(34, 34, 34);
 
 }
 
@@ -487,9 +504,9 @@ body{
 }
 
 .comment-input {
-    width: 100%;
+    width: 90%;
     height: 2em;
-    padding: 1em;
+    padding-left: 1em;
     font-size: 1.2em;
     background-color: transparent;
     border: none;
@@ -502,7 +519,7 @@ body{
 
 .interact-buttons span{
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 1em;
     margin-top: 1em ;
 
@@ -513,7 +530,21 @@ body{
 }
 
 
+.replies-container {
+    padding-left: 2.5em; /* Indent replies */
+    margin-top: 10px;
+    font-size: 0.9em;
+}
 
+
+
+.far.fa-heart {
+    color: white; /* Default color for unliked state */
+}
+
+.fas.fa-heart {
+    color: rgb(255, 91, 91); /* Color for liked state */
+}
 
 
 

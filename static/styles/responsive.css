@@ -97,6 +97,10 @@
     .loggedin-user-profile{
         margin-left: 0;
     }
+    .nav-search input{
+        display: block;
+      
+    }
   
   }
 
@@ -155,6 +159,7 @@
         font-size: 0.9em;
 
     }
+
   }
 
   @media screen and (max-width: 640px) {
