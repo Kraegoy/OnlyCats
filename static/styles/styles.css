@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(26, 26, 26);
     overflow-x: hidden;
 }
 /* Style for the scrollbar track */
@@ -17,7 +17,7 @@ body{
   
   /* Style for the scrollbar track on hover */
   *::-webkit-scrollbar-track:hover{
-    background-color: #000000; 
+    background-color: rgb(26, 26, 26);
   }
   
   /* Style for the scrollbar thumb on hover */
@@ -28,14 +28,14 @@ body{
 .main-content{
     width: 70%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(26, 26, 26);
     margin-left: 2em;
     overflow: hidden;
     display: flex;
 
 }
 .newsfeed-user-post{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(26, 26, 26);
     margin-bottom: 2em;
     width: 100%;
     margin-left: 3em;
@@ -118,6 +118,7 @@ body{
     margin-bottom: 1em;
     color: white;
     border-bottom: 1px solid rgba(248, 248, 255, 0.098);
+    position: relative;
 }
 
 .comments-container{
@@ -128,13 +129,19 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    cursor: pointer;
     object-fit: cover; 
 }
-.comment-text{
+.comment-text {
     position: absolute;
     margin-top: -2em;
     margin-left: 3em;
+    width: 75%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
+
 
 .like-comment{
     position: absolute;
@@ -144,7 +151,7 @@ body{
     border: none;
     color: #b1b1b1;
     cursor: pointer;
-    margin-left: 29%
+    right: 0;
 }
 .like-comment:hover{
     color: #ff6565;
@@ -168,6 +175,9 @@ body{
     overflow:hidden;
     margin-left: 1em;
     padding: 5px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.525);
+    border-top: 1px solid rgba(128, 128, 128, 0.525);
+
 }
 
 .loggedin-user-profile img {
@@ -236,8 +246,7 @@ body{
     position: absolute;
     right: 0;
     padding: 0.9em;
-    background-color: #000000;
-
+    background-color: rgb(26, 26, 26);
 }
 
 footer{

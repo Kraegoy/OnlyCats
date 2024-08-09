@@ -17,15 +17,14 @@
     display: flex;
 }
 
-.chats-snippet{
+.chats-snippet1{
     height: 92vh;
     width: 27vw;
     margin-left: 1em;
     border-radius: 1em;
     border: 1px solid rgba(255, 255, 255, 0.22);
-    position: relative;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden;   
 }
 
 
@@ -39,8 +38,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
-
 
 
 .back-home{
@@ -60,8 +57,8 @@
     position: absolute;
     font-weight: bolder;
     cursor: pointer;
-    left: 50%;
-    transform: translate(-50%);
+    left: 3em;
+  
 }
 
 .messages-search{

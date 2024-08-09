@@ -92,7 +92,7 @@
     .loaded-chat{
         width: 58vw;
     }
-    .chats-snippet{
+    .chats-snippet1{
         width: 34vw;
     }
     .chat-snippet-profile-pic{
@@ -112,7 +112,7 @@
 
 
 @media screen and (max-width: 645px) {
-    .loaded-chat, .chats-snippet{
+    .loaded-chat, .chats-snippet1{
         height: 80vh;
     }
     .loaded-chat{
@@ -162,9 +162,8 @@
 
 @media screen and (max-width: 490px) {
  
-    .chats-snippet{
+    .chats-snippet1{
         width: 85vw;
-        margin-left: 2em;
     }
     .individual-chats{
         width: 79vw;
@@ -231,7 +230,7 @@
     .friends-messages {
         max-width: 55vw;
     }
-    .chats-snippet{
+    .chats-snippet1{
         margin-left: 1em;
     }
 }
@@ -242,9 +241,7 @@
         width: 45px;
         height: 45px;
     }
-    .chats-snippet{
-        margin-left: 0;
-    }
+
 }
 
 @media screen and (max-width: 300) {

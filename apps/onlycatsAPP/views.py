@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from apps.user.models import UserProfile
 from apps.user.models import UserProfile
 from django.core.exceptions import ValidationError
 
@@ -59,8 +58,21 @@ def login(request):
 
 @login_required
 def home(request):
-    username = request.user.username  # Directly access the username
-    return render(request, 'home.html', {'username': username})
+    userProfile = UserProfile.objects.filter(user=request.user).first()
+    user = request.user
+
+    user_info = {
+        'fullName': user.first_name + " " + user.last_name,
+        'username': user.username,
+        'profile_picture': userProfile.profile_picture.url if userProfile.profile_picture else '',
+        'bio': userProfile.bio,
+        'followers_count': userProfile.followers.count(),
+        'following_count': userProfile.following.count(),
+        'birth_date': userProfile.birth_date,
+        'location': userProfile.location,
+    }   
+    # Render the upload form
+    return render(request, 'home.html', {"user_info": user_info})
 
 @login_required
 def logout_view(request):

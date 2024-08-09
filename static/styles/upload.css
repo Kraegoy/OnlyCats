@@ -1,0 +1,143 @@
+body{
+    background-color: rgb(26, 26, 26);
+    overflow-x: hidden;
+}
+
+.upload-view-container{
+    position: fixed;
+    height: 620px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(26, 26, 26);
+    z-index: 100000000;
+    border: 1px solid rgba(128, 128, 128, 0.641);
+    border-radius: 10px;
+    display: none;
+}
+
+.upload-overlay{
+    display: none;
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.839);
+    z-index: 100000;
+    overflow: hidden;
+}
+
+.close-upload-view{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    cursor: pointer;
+    padding: 1em;
+}
+
+#imageUploadForm{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+#caption{
+    width: 90%;
+    padding: 1em;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    height: 3em;
+    border: none;
+}
+#caption::placeholder{
+    color: rgb(96, 96, 96);
+}
+#caption:focus{
+    outline: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 5px;
+}
+
+#uploadButton{
+    width: 12em;
+    padding: 8px;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: 1px solid rgb(130, 130, 130);
+    cursor: pointer;
+    margin-top: 1em;
+    align-self: center;
+    position: absolute;
+    border-radius: 3px;
+}
+
+#submitButton{
+    width: 7em;
+    padding: 5px;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: 1px solid rgb(130, 130, 130);
+    cursor: pointer;
+    margin-top: 1em;
+    align-self: center;
+    border-radius: 3px;
+
+}
+
+.upload-image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    border: 1px solid rgb(55, 55, 55);
+    height: 310px;
+    padding: 1em;
+    width: 90%;
+    border-radius: 10px;
+}
+
+
+#imagePreview {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    display: block;
+}
+
+#changePhotoButton{
+    width: 20%;
+    padding: 8px;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: 1px solid rgb(130, 130, 130);
+    cursor: pointer;
+    margin-top: 1em;
+    align-self: center;
+    border-radius: 3px;
+}
+
+textarea#caption {
+    resize: none; 
+}
+
+
+.upload-user-profile{
+    display: flex;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+.upload-profile-pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.upload-username{
+    color: white;
+    font-size: 1.5em;
+    align-self: center;
+    text-transform: capitalize;
+}

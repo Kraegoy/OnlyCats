@@ -1,9 +1,13 @@
+body{
+    background-color: rgb(26, 26, 26);
+    overflow-x: hidden;
+}
 .nav-bar-container{
     width: 100%;
     position: fixed;
     height: 3em;
     top: 0;
-    background-color: black;
+    background-color: rgb(26, 26, 26);
     transition: transform 0.3s ease;
     z-index: 1000;
 }
@@ -11,9 +15,11 @@
     color: white;
     position: absolute;
     font-size: 2em;
-    align-self: center;
     left: 50px;
+    top: 50%;
+    transform: translate(0, -50%);
 }
+
 .nav-search{
     position: absolute;
     align-self: center;
@@ -24,7 +30,7 @@
     transform: translate(-50%, -50%);
 }
 .nav-search input{
-    background-color: black;
+    background-color: rgb(26, 26, 26);
     height: 2em;
     width: 22em;
     border: 1px solid whitesmoke;
@@ -47,11 +53,13 @@
     text-decoration: none;
     display: flex;
     padding: 1em;
+    cursor: pointer;
 }
 .nav-items li a{
     text-decoration: none;
     color: white;
     font-size: 1.2em;
+
 }
 .nav-items{
     display: flex;
@@ -69,11 +77,11 @@
     width: 100%;
     justify-content: center; 
     position: fixed;
-    min-height: 3.5em;
-    max-height: 3.5em;
+    height: 3em;
     bottom: 0;
     background-color: rgb(0, 0, 0);
     z-index: 1000;
+    overflow: hidden;
 }
 
 .bottom-nav-items {

@@ -15,18 +15,23 @@ href="{% static 'styles/responsive.css' %}"
 <div class="nav-bar-container">
   <div class="logo" onclick=""><a href="{% url 'home' %}" style="text-decoration: none; color: white">OnlyCats</a></div>
 
-  <div class="nav-search"><input type="text" class="search" placeholder="Search... "> </input></div>
+    <div class="nav-search" onclick="showSearchView(mobile=false)">
+      <input type="text" class="search toshowlater" placeholder="Search... " id="search-user-input"> </input>
+    </div>
 
 
       <div class="nav-items">
+        
         <li onclick=showMessages()><a href="#"><i class="fas fa-message"></i></a></li>
         <li><a href="#"><i class="fas fa-bell"></i></a></li>
-        <li><a href="#" class="to-hide"><i class="fas fa-plus"></i></a></li>
-        <li><a href="#" class="to-hide"><i class="fas fa-film"></i></a></li> <!-- Film reel icon -->
-        <li><a href="{% url 'user_view' %}" class="to-hide"><i class="fas fa-user"></i></a></li>
-        <li><a href="#" class="to-hide">{{username}}</a></li>
+        <li onclick=showUpload()><a href="#" class="to-hide"><i class="fas fa-plus"></i></a></li>
+
+         <!-- Film reel icon <li><a href="#" class="to-hide"><i class="fas fa-film"></i></a></li> -->
+
+        <li><a href="{% url 'user_view' id=request.user.id %}" class="to-hide"><i class="fas fa-user"></i></a></li>
 
         <li><a href="/logout" class="to-hide">logout</a></li>
+
 
       </div>
 
@@ -34,10 +39,11 @@ href="{% static 'styles/responsive.css' %}"
 
 <div class="bottom-nav-bar-container">
   <div class="bottom-nav-items">
-    <li><a href="#"><i class="fas fa-home"></i></a></li>
-    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-    <li><a href="#"><i class="fas fa-search"></i></a></li> 
+    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
+    <li onclick=showUpload()><a href="#"><i class="fas fa-plus"></i></a></li>
+    <li onclick="showSearchView(mobile=true)"><a href="#"><i class="fas fa-search"></i></a></li> 
     <li><a href="#"><i class="fas fa-film"></i></a></li> 
-    <li><a href="#"><i class="fas fa-user"></i></a></li>
+    <li><a href="{% url 'user_view' id=request.user.id %}"><i class="fas fa-user"></i></a></li>
   </div>
 </div>
+

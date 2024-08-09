@@ -23,14 +23,20 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
     <title>Only Cats</title>
   </head>
   <body>
-    {% include 'messages.html' %} {% include 'nav.html' %}
+    {% include 'messages.html' %} {% include 'nav.html' %} {% include 'upload.html' %} {% include 'search.html' %}
+
     <div class="user-profile-container">
       <div class="user-profile-pic-container">
         <img
-          src="./media/profile_pics/default.png"
+          src="{{user_info.profile_picture}}"
           alt="User Profile Picture"
           class="user-profile-pic"
         />
@@ -38,130 +44,181 @@
 
       <div class="user-profile-info-container">
         <div class="user-top-info">
-          <span class="user-username"> Username </span>
-          <button>Edit Profile</button>
+          <span class="user-username"> {{user.username}} </span>
+
+          {% block edit-button %} {% if user.id == request.user.id %}
+
+          <button onclick="showEditProfileForm()" class="edit-profile-button">
+            Edit Profile
+          </button>
+
+          <div
+            class="edit-profile-form-overlay"
+            id="edit-profile-form-overlay"
+            onclick="hideEditProfileForm()"
+          ></div>
+
+          <div
+            class="edit-profile-form-container"
+            id="edit-profile-form-container"
+          >
+            <form
+              action="{% url 'edit_profile' %}"
+              method="POST"
+              enctype="multipart/form-data"
+              class="edit-profile-form"
+            >
+              {% csrf_token %}
+
+              <label for="profile_picture">Profile Picture:</label>
+              <input
+                type="file"
+                id="profile_picture"
+                name="profile_picture"
+                accept="image/*"
+              />
+              <label for="profile_picture" class="custom-file-upload"
+                >Change Profile Picture
+                <i class="fas fa-file-image" style="margin-left: 1em"></i
+              ></label>
+              <img
+                id="profile_picture_preview"
+                src="{{user_info.profile_picture}}"
+                alt="Profile Picture Preview"
+              />
+
+              <input
+                type="text"
+                id="bio"
+                name="bio"
+                placeholder="Bio"
+                value="{{user_info.bio}}"
+              />
+
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Location"
+                value="{{user_info.location}}"
+              />
+
+              <label for="birth_date">Birth Date:</label>
+              <input
+                type="date"
+                id="birth_date"
+                name="birth_date"
+                value="{% if user_info.birth_date %}{{ user_info.birth_date|date:'Y-m-d' }}{% endif %}"
+              />
+
+              <button type="submit">Save</button>
+            </form>
+          </div>
+
+          {% endif %} {% endblock %}
         </div>
 
-        <div class="user-middle-info">
-          <span class="user-posts-count"> Posts Counts </span>
-          <span class="followers"> followers </span>
-          <span class="following"> following </span>
-          <p class="user-bio">bio of the user</p>
+        <div class="user-basic-info-container">
+          <div class="user-basic-info">
+            <div class="user-posts-count">
+              <p class="info">{{posts_counts}}</p>
+              <p class="posts-count">Posts</p>
+            </div>
+
+            <div class="user-followers">
+              <p class="info">{{user_info.followers_count}}</p>
+              <p class="followers-counts">followers</p>
+            </div>
+
+            <div class="user-following">
+              <p class="info">{{user_info.following_count}}</p>
+              <p class="following-counts">following</p>
+            </div>
+          </div>
+
+          <p class="user-bio">{{user_info.bio}}</p>
         </div>
+
+        {% if user.id != request.user.id %} {% if user in my_following %}
+        <!-- Show Unfollow button if already following -->
+        <a href="#}">
+          <button class="user-follow-button">Unfollow</button>
+        </a>
+        {% else %}
+        <!-- Show Follow button if not following -->
+        <a href="{% url 'follow_user' user.id %}">
+          <button class="user-follow-button">Follow</button>
+        </a>
+        {% endif %}
+        <a href="#">
+          <button class="user-message-button">Message</button>
+        </a>
+        {% endif %}
       </div>
     </div>
 
     <div class="user-highlights-container">
       <div class="highlight-user-profile">
-        <img src="./media/profile_pics/ccc.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/111.jpg" alt="User Profile Picture" />
+        <img src="{{user_info.profile_picture}}" alt="User Profile Picture" />
         <p class="highlight-text">highlight text</p>
       </div>
 
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/333.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/4444.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
-      <div class="highlight-user-profile">
-        <img
-          src="./media/profile_pics/default.png"
-          alt="User Profile Picture"
-        />
-        <p class="highlight-text">highlight text</p>
-      </div>
-
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/111.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/222.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
-      <div class="highlight-user-profile">
-        <img src="./media/profile_pics/333.jpg" alt="User Profile Picture" />
-        <p class="highlight-text">highlight text</p>
-      </div>
     </div>
 
     <div class="user-posts-container-parent">
       <div class="user-posts-container">
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/333.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/111.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/222.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/4444.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/777.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/ccc.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/666.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/default.png"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
-        <div class="user-post">
-          <img
-            src="./media/profile_pics/333.jpg"
-            alt="User Profile Picture"
-            class="user-post-front"
-          />
-        </div>
+        {% block content %} {% for post in posts %}
+        <a href="#" onclick="showPostDetails({{ post.id }}); return false;" class="post-container1">
+          <div class="user-post">
+            <img
+              src="{{ post.image.url }}"
+              alt="Post Image"
+              class="user-post-front"
+            />
+          </div>
+        </a>
+        {% empty %}
+        <p>No posts available.</p>
+        {% endfor %} {% endblock %}
       </div>
     </div>
 
-    <div class="bottom-nothing">
+    <div class="post-details-overlay" id="post-details-overlay" onclick="hidePostDetails()"></div>
+
+    <div class="post-details-container" id="post-details-container">
+
+        {% block post-details %}
+        <div class="post-img-container" id="post-img-container">
+          <img src="{{ post_info.image }}" alt="Post Image" class="post-img"/>
+        </div>
+
+        <div class="post-interactions-container" id="post-interactions-container">
+
+              <div class="post-info-container" id="post-info-container">
+                  <!-- uploader-info will be dynamically inserted here -->    
+              </div>
+
+              <div class="post-comments-container" id="post-comments-container">
+                     <!-- Comments will be dynamically inserted here -->
+              </div>
+
+              <div class="interact-to-post">
+                  <div class="interact-buttons">
+                    <span class="like-button"><i class="far fa-heart"></i></span>
+                    <span class="comment-button"><i class="far fa-comment"></i></span>
+                    <span class="share-button"><i class="far fa-paper-plane"></i></span>
+                  </div>
+                  <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+              </div>
+        </div>
+
+        {% endblock %}
+        
     </div>
 
-    <script src="{% static 'JS/index.js' %}"></script>
+    <div class="bottom-nothing"></div>
+
+    <script src="{% static 'JS/userProfile.js' %}"></script>
+    <script src="{% static 'scripts/upload.js' %}"></script>
   </body>
 </html>
