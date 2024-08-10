@@ -1,0 +1,12 @@
+.emoji-picker {
+    width: 50%;
+    height: 3em;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aqua;
+}
+
+
+

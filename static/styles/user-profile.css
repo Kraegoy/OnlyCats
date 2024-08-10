@@ -504,18 +504,95 @@ body{
 }
 
 .comment-input {
-    width: 90%;
-    height: 2em;
+    display: block;
+    width: 85% !important;
+    height: auto;
     padding-left: 1em;
-    font-size: 1.2em;
+    font-size: 1em;
     background-color: transparent;
     border: none;
-    color: white;
-    margin-top: 1em;
-    height: auto;
-    resize: none;
-    
+    color: white !important;
+    padding-right: 0;
+    position: relative
 }
+
+.emojionearea-editor{
+    min-height: 3em !important;
+    max-height: 6em !important;
+}
+
+.emojionearea-search input{
+    background-color: rgb(47, 47, 47) !important;
+    color: white !important;
+
+}
+
+.emojionearea .emojionearea-picker div{
+    background-color: rgb(47, 47, 47) !important;
+    color: white !important;
+}
+.emojionearea-search-panel{
+    background-color: rgb(47, 47, 47) !important;
+    color: white !important;
+}
+
+.emojionearea-picker{
+    background-color: rgb(47, 47, 47) !important;
+}
+
+
+
+
+.emoji-close-button{
+    position: absolute;
+    color: rgb(207, 207, 207);
+    top: 50%;
+    transform: translate(-55%);
+    font-size: 1.5em;
+    left: 1em;
+    display: none;
+}
+.cat-emoji{
+    position: absolute;
+    color: rgb(207, 207, 207);
+    top: 50%;
+    transform: translate(-55%);
+    left: 1.5em;
+}
+
+
+.emojionearea-editor{
+    color: white !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+
+.emojionearea {
+    position: relative; /* Ensure the container can be used for absolute positioning */
+}
+
+.emojionearea .emojionearea-button {
+    position: absolute;
+    left: 0; /* Position the emoji button to the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 1; /* Ensure it stays on top of other elements */
+    padding-left: 1em;
+    opacity: 0;
+}
+
+.emojionearea .emojionearea-button:hover {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.emojionearea .emojionearea-editor {
+    padding-left: 2em; 
+}
+
+
+
 
 .interact-buttons span{
     color: white;
@@ -527,6 +604,7 @@ body{
 
 .comment-input:focus {
     outline: none;
+    border: none;
 }
 
 
@@ -555,17 +633,13 @@ body{
 .comment-post-button{
     color: rgb(207, 207, 207);
     padding: 1em;
+    padding-left: 6px;
 }
 .cat-emoji{
     width: 1.5em;
 }
 
 
-.emoji-post-button{
-    color: rgb(207, 207, 207);
-    padding: 1em;
-    padding-right: 0;
-}
 
 
 

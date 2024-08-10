@@ -1,5 +1,5 @@
 // Get references to the elements
-const uploadButton = document.getElementById('uploadButton');
+const uploadButton1 = document.getElementById('uploadButton');
 const fileInput = document.getElementById('fileInput');
 const imagePreview = document.getElementById('imagePreview');
 const changePhotoButton = document.getElementById('changePhotoButton');
@@ -7,7 +7,7 @@ const uploadOverlay = document.getElementById('upload-overlay');
 const uploadViewContainer = document.getElementById('upload-view-container');
 
 // Event listener for the "Select Image" button
-uploadButton.addEventListener('click', () => {
+uploadButton1.addEventListener('click', () => {
     fileInput.click();
 });
 
@@ -19,7 +19,7 @@ fileInput.addEventListener('change', (event) => {
         reader.onload = (e) => {
             imagePreview.src = e.target.result;
             imagePreview.style.display = 'block';
-            uploadButton.style.display = 'none'; // Hide "Select Image" button
+            uploadButton1   .style.display = 'none'; // Hide "Select Image" button
             changePhotoButton.style.display = 'block'; // Show "Change Photo" button
         };
         reader.readAsDataURL(file);

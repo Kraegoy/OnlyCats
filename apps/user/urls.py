@@ -7,6 +7,7 @@ from .views import(
     ajax_post_details,
     like_post,
     like_comment,
+    add_comment,
 )
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path('search_users/', search_users, name='search_users'),
     path('like-post/<int:post_id>/', like_post, name='like_post'),
     path('like-comment/<int:comment_id>/', like_comment, name='like_comment'),
+    path('ajax/add-comment/<int:post_id>/', add_comment, name='add_comment'),
 
 
 

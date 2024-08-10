@@ -5,6 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token }}">
+   
+
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css"
+  />
 
     <link
       rel="stylesheet"
@@ -12,6 +19,9 @@
       href="{% static 'styles/user-profile.css' %}"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+
+   
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -30,6 +40,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
+   
+ 
     <title>Only Cats</title>
   </head>
   <body>
@@ -141,20 +153,20 @@
           <p class="user-bio">{{user_info.bio}}</p>
         </div>
 
-        {% if user.id != request.user.id %} {% if user in my_following %}
-        <!-- Show Unfollow button if already following -->
-        <a href="#}">
-          <button class="user-follow-button">Unfollow</button>
-        </a>
-        {% else %}
-        <!-- Show Follow button if not following -->
-        <a href="{% url 'follow_user' user.id %}">
-          <button class="user-follow-button">Follow</button>
-        </a>
-        {% endif %}
-        <a href="#">
-          <button class="user-message-button">Message</button>
-        </a>
+          {% if user.id != request.user.id %} {% if user in my_following %}
+          <!-- Show Unfollow button if already following -->
+            <a href="#}">
+              <button class="user-follow-button">Unfollow</button>
+            </a>
+          {% else %}
+          <!-- Show Follow button if not following -->
+            <a href="{% url 'follow_user' user.id %}">
+              <button class="user-follow-button">Follow</button>
+            </a>
+          {% endif %}
+            <a href="#">
+              <button class="user-message-button">Message</button>
+            </a>
         {% endif %}
       </div>
     </div>
@@ -220,8 +232,13 @@
    
 
     <script src="{% static 'JS/userProfile.js' %}"></script>
-    <script src="{% static 'JS/upload.js' %}"></script>
     <script src="{% static 'JS/index.js' %}"></script>
+
+     <!-- jQuery JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <!-- EmojiOneArea JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+ 
 
   </body>
 </html>

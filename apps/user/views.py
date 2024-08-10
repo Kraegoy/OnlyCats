@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.db.models import Q
 from django.views.decorators.http import require_POST
+import json
+from django.utils.dateformat import format
+
 
 
 @login_required
@@ -135,10 +138,10 @@ def ajax_post_details(request, id):
                 'user': comment.user.username,
                 'profile_picture': comment.user.userprofile.profile_picture.url if comment.user.userprofile.profile_picture else '',
                 'content': comment.content,
-                'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                'created_at': comment.created_at.isoformat(),  # ISO 8601 format
                 'liked': liked,
                 'likes': comment.likes.count(),
-                'replies': [serialize_comment(reply) for reply in replies] # Recursively serialize replies
+                'replies': [serialize_comment(reply) for reply in replies]  # Recursively serialize replies
             }
 
         comments = userPost.comments.filter(parent__isnull=True)  # Only parent comments
@@ -212,3 +215,45 @@ def like_comment(request, comment_id):
         
     else:
         return JsonResponse({'error': 'User not authenticated'}, status=401)
+    
+@login_required
+@require_POST
+def add_comment(request, post_id):
+    try:
+        data = json.loads(request.body)
+        content = data.get('content', '')
+
+        if not content.strip():
+            return JsonResponse({'error': 'Comment cannot be empty'}, status=400)
+
+        post = get_object_or_404(UserPost, id=post_id)
+        comment = Comment.objects.create(
+            user=request.user,
+            post=post,
+            content=content,
+            parent=None
+        )
+
+        # Fetch the user profile and handle the case where it might not exist
+        try:
+            userprofile = comment.user.userprofile
+            profile_picture_url = userprofile.profile_picture.url if userprofile.profile_picture else ''
+        except UserProfile.DoesNotExist:
+            profile_picture_url = ''  # Default to empty if UserProfile does not exist
+
+        comment_data = {
+            'id': comment.id,
+            'user': comment.user.username,
+            'profile_picture': profile_picture_url,
+            'content': comment.content,
+            'created_at': comment.created_at.isoformat(),
+            'likes': comment.likes.count(),
+            'liked': request.user in comment.likes.all()
+        }
+
+        return JsonResponse({'comment': comment_data})
+
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)

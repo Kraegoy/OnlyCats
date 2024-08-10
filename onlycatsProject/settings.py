@@ -88,6 +88,9 @@ DATABASES = {
         'PORT': '3307',
         'USER': 'root',
         'PASSWORD': 'kraeg',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -126,6 +129,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
+
 ]
 LOGIN_URL = 'login' #apps.onlycatsAPP.views
 

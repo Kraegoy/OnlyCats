@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Only Cats</title>
+    <!-- EmojiOneArea CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css"
+    />
+
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'styles/emoji-picker.css' %}"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  </head>
+  <body>
+
+    <!-- Textarea for emoji input -->
+     <div class="emoji-picker">
+      <textarea id="message_input"></textarea>
+    </div>
+
+    <!-- jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- EmojiOneArea JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $("#message_input").emojioneArea({
+            pickerPosition: "top",
+        });
+      });
+    </script>
+  </body>
+</html>

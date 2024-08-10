@@ -52,6 +52,12 @@ function hidePostDetails(){
 function formatTimeAgo(dateString) {
     const now = new Date();
     const then = new Date(dateString);
+
+    // Ensure that `then` is not a future date
+    if (now < then) {
+        return 'In the future';
+    }
+
     const diff = now - then;
     const minutes = Math.floor(diff / 60000);
     const hours = Math.floor(diff / 3600000);
@@ -71,6 +77,7 @@ function formatTimeAgo(dateString) {
         return 'Just now';
     }
 }
+
 
 
 
@@ -125,7 +132,12 @@ function createCommentElement(comment) {
     var likeCountSpan = document.createElement('span');
     likeCountSpan.className = 'comment-like-counts';
     likeCountSpan.setAttribute('id', `like-count-${comment.id}`);
+    if (comment.likes > 0 && comment.likes > 1) {
     likeCountSpan.textContent = `${comment.likes} likes`;    // like counts span
+    }
+    if (comment.likes == 1) {
+        likeCountSpan.textContent = `${comment.likes} like`;    // like counts span
+    }
     interactions.appendChild(likeCountSpan);
 
     var repliesContainer = document.createElement('div');
@@ -194,13 +206,15 @@ function showPostDetails(postId, event) {
                 </div>
                 <div class="post-comments-container1" id="post-comments-container1">
                     <span class="emoji-post-button">
-                        <img src="/media/logos/cat-emoji.svg" alt="Emoji Icon" class="cat-emoji" />
-                    </span>                    
-                    <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+                        <img src="/media/logos/cat-emoji.svg" alt="Emoji Icon" class="cat-emoji"/>
+                        <span class="emoji-close-button"><i class="fas fa-times"></i></span>
+                    </span>     
+                    <div placeholder="Add a comment..." class="comment-input" style="overflow-y:scroll;"></div>
                     <span class="comment-post-button">Post</span>
                 </div>
-                
             `;
+
+            
 
             document.getElementById('post-info-container').innerHTML = postInfoHtml;
             document.getElementById('interact-to-post').innerHTML = interactToPost;
@@ -209,6 +223,70 @@ function showPostDetails(postId, event) {
             // Clear previous comments
             var commentsContainer = document.getElementById('post-comments-container');
             commentsContainer.innerHTML = '';
+
+            const commentInput = document.querySelector('.comment-input');
+            const commentPostButton = document.querySelector('.comment-post-button');
+
+           
+            // Initialize EmojiOneArea after content is inserted
+            $(document).ready(function() {
+                $(".comment-input").emojioneArea({
+                    pickerPosition: "top",
+                    emojiPlaceholder: ":smile_cat:",
+                    events: {
+                        initialized: function() {
+                            // Store EmojiOneArea instance in window object
+                            window.commentInput = $(this).data("emojioneArea");
+                            console.log('EmojiOneArea initialized:', window.commentInput); 
+                                                     
+                        }
+                    }
+                });
+
+                
+
+                // Function to clear text
+                function clearEmojiOneArea() {
+                    var editor = $('.comment-input').data('emojioneArea');
+                    if (editor) {
+                        editor.setText('');
+                    }
+                }
+            
+                // for comment post button
+                const commentPostButton = document.querySelector('.comment-post-button');
+                if (commentPostButton) {
+                    commentPostButton.addEventListener('click', function() {
+                        handleCommentSubmission(postDetailsData.id);
+                        clearEmojiOneArea();
+                    });
+                } else {
+                    console.error('Comment post button not found.');
+                }
+
+                document.addEventListener('keydown', function(event) {
+                    // Check if Enter key is pressed
+                    if (event.key === 'Enter') {
+                        // Check if an editable element or input field is focused
+                        if (document.activeElement.matches('.emojionearea-editor')) {
+                            // Your code here
+                            console.log('Enter key pressed in focused element');
+                            // Prevent the default action if needed
+                            event.preventDefault();
+                            handleCommentSubmission(postDetailsData.id);
+                            clearEmojiOneArea();
+                        }
+                    }
+                });
+
+               
+
+                           
+
+                
+            });
+
+            
 
             // Add new comments
             postDetailsData.comments.forEach(function(comment) {
@@ -229,6 +307,7 @@ function showPostDetails(postId, event) {
     };
     xhr.send();
 }
+
 
 function getCsrfToken() {
     const csrfTokenElement = document.querySelector('[name=csrfmiddlewaretoken]');
@@ -302,13 +381,70 @@ function handleCommentLike(commentId) {
         const likeCountElement = document.getElementById(`like-count-${commentId}`);
         const likeButton = document.querySelector(`[data-post-id="${commentId}"] i`);
 
-        if (data.liked) {
+       // Update the like count display
+        if (data.likes_count == 1) {
+            likeCountElement.textContent = `${data.likes_count} like`;
+        } else if (data.likes_count > 1) {
             likeCountElement.textContent = `${data.likes_count} likes`;
+        } else {
+            likeCountElement.textContent = ``;
+        }
+
+        // Update the like button icon
+        if (data.liked) {
             likeButton.className = 'fas fa-heart'; // Filled heart icon
         } else {
-            likeCountElement.textContent = `${data.likes_count} likes`;
             likeButton.className = 'far fa-heart'; // Outline heart icon
         }
     })
     .catch(error => console.error('Error liking the post:', error));
+}
+
+
+function saveComment(postId, content) {
+    return fetch(`/ajax/add-comment/${postId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCsrfToken('csrftoken') // CSRF token for security
+        },
+        body: JSON.stringify({
+            content: content
+        })
+    })
+    .then(response => response.json());
+}
+
+
+function updateComments(newComments) {
+    const commentsContainer = document.querySelector('.post-comments-container');
+
+    // Append new comments
+    newComments.forEach(function(comment) {
+        if (!comment.parent) { // Only parent comments
+            var commentElement = createCommentElement(comment);
+            commentsContainer.appendChild(commentElement);
+        }
+    });
+}
+
+function handleCommentSubmission(postId) {
+    const commentInput = document.querySelector('.emojionearea-editor');
+    const content = commentInput.textContent.trim(); // Get the content from the div
+
+    if (content === '') {
+        return;
+    }
+
+    saveComment(postId, content) // Pass the content and postId to saveComment function
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                // Update comments with the new comment
+                updateComments([data.comment]); // Assuming the server returns the new comment only
+                commentInput.textContent = ''; // Clear the comment input
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }

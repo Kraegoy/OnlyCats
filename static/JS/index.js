@@ -16,12 +16,15 @@ if(messages){
             if (scrollTop > lastScrollTop) {
                 // Scroll down
                 navBar.classList.add('hidden');
-                sideContent.style.top = "3em";
+                if(sideContent){
+                    sideContent.style.top = "3em";
+                }
             } else {
                 // Scroll up
                 navBar.classList.remove('hidden');
-                sideContent.style.top = "5em"
-            }
+                if(sideContent){
+                    sideContent.style.top = "5em";
+                }            }
             lastScrollTop = scrollTop;
         }
         
