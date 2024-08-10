@@ -127,6 +127,8 @@ def ajax_post_details(request, id):
         def serialize_comment(comment):
             # Log to verify the replies
             replies = comment.replies.all()
+            
+            liked = comment.likes.filter(id=user.id).exists()
 
             return {
                 'id': comment.id,
@@ -134,7 +136,9 @@ def ajax_post_details(request, id):
                 'profile_picture': comment.user.userprofile.profile_picture.url if comment.user.userprofile.profile_picture else '',
                 'content': comment.content,
                 'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-                'replies': [serialize_comment(reply) for reply in replies]  # Recursively serialize replies
+                'liked': liked,
+                'likes': comment.likes.count(),
+                'replies': [serialize_comment(reply) for reply in replies] # Recursively serialize replies
             }
 
         comments = userPost.comments.filter(parent__isnull=True)  # Only parent comments
@@ -183,5 +187,28 @@ def like_post(request, post_id):
             'liked': liked,
             'likes_count': post.likes.count()
         })
+    else:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+
+
+@require_POST
+def like_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    user = request.user
+
+    if user.is_authenticated:
+        if comment.likes.filter(id=user.id).exists():
+            comment.remove_like(user)
+            liked = False
+        else:
+            comment.add_like(user)
+            liked = True
+
+        # Return JSON response with updated like count and status
+        return JsonResponse({
+            'liked': liked,
+            'likes_count': comment.likes.count()
+        })
+        
     else:
         return JsonResponse({'error': 'User not authenticated'}, status=401)

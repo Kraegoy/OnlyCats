@@ -108,9 +108,14 @@ function createCommentElement(comment) {
     interactions.appendChild(commentTime);
 
     var likeSpan = document.createElement('span');
+    var like_class = comment.liked ? 'fas fa-heart' : 'far fa-heart';
     likeSpan.className = 'comment-like';
-    likeSpan.innerHTML = '<i class="far fa-heart"></i>';
+    likeSpan.innerHTML = `<i class="${like_class}"></i>`;  // like button
+
+    
+    likeSpan.setAttribute('data-post-id', comment.id);
     interactions.appendChild(likeSpan);
+
 
     var replySpan = document.createElement('span');
     replySpan.className = 'comment-reply';
@@ -119,19 +124,28 @@ function createCommentElement(comment) {
 
     var likeCountSpan = document.createElement('span');
     likeCountSpan.className = 'comment-like-counts';
-    likeCountSpan.textContent = '2m likes'; // Update with actual like count if needed
+    likeCountSpan.setAttribute('id', `like-count-${comment.id}`);
+    likeCountSpan.textContent = `${comment.likes} likes`;    // like counts span
     interactions.appendChild(likeCountSpan);
 
     var repliesContainer = document.createElement('div');
     repliesContainer.className = 'replies-container';
 
+
+
     // Recursively create and append replies
-    if (comment.replies) {
+    if (Array.isArray(comment.replies)) {
         comment.replies.forEach(function(reply) {
             var replyElement = createCommentElement(reply);
             repliesContainer.appendChild(replyElement);
+           
         });
     }
+
+    likeSpan.addEventListener('click', function() {
+        handleCommentLike(comment.id);
+    });
+    
 
     // Append user details, interactions, and replies to comment element
     commentElement.appendChild(userDetail);
@@ -178,7 +192,14 @@ function showPostDetails(postId, event) {
                     </span>
                     <span class="comment-button"><i class="far fa-comment"></i></span>
                 </div>
-                <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+                <div class="post-comments-container1" id="post-comments-container1">
+                    <span class="emoji-post-button">
+                        <img src="/media/logos/cat-emoji.svg" alt="Emoji Icon" class="cat-emoji" />
+                    </span>                    
+                    <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+                    <span class="comment-post-button">Post</span>
+                </div>
+                
             `;
 
             document.getElementById('post-info-container').innerHTML = postInfoHtml;
@@ -199,7 +220,7 @@ function showPostDetails(postId, event) {
 
             // Add event listener to the like button
             document.querySelector('.like-button').addEventListener('click', function() {
-                handleLike(postDetailsData.id);
+                handlePostLike(postDetailsData.id);
             });
 
         } else {
@@ -214,15 +235,8 @@ function getCsrfToken() {
     return csrfTokenElement ? csrfTokenElement.value : '';
 }
 
-document.addEventListener('click', function(event) {
-    const likeButton = event.target.closest('.like-button');
-    if (likeButton) {
-        const postId = likeButton.getAttribute('data-post-id');
-        handleLike(postId);
-    }
-});
 
-function handleLike(postId) {
+function handlePostLike(postId) {
     if (!postId) {
         console.error('Invalid post ID');
         return;
@@ -248,6 +262,45 @@ function handleLike(postId) {
     .then(data => {
         const likeCountElement = document.getElementById(`like-count-${postId}`);
         const likeButton = document.querySelector(`[data-post-id="${postId}"] i`);
+
+        if (data.liked) {
+            likeCountElement.textContent = `${data.likes_count} likes`;
+            likeButton.className = 'fas fa-heart'; // Filled heart icon
+        } else {
+            likeCountElement.textContent = `${data.likes_count} likes`;
+            likeButton.className = 'far fa-heart'; // Outline heart icon
+        }
+    })
+    .catch(error => console.error('Error liking the post:', error));
+}
+
+
+function handleCommentLike(commentId) {
+    if (!commentId) {
+        console.error('Invalid post ID');
+        return;
+    }
+
+    fetch(`/like-comment/${commentId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCsrfToken()
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            return response.text().then(text => {
+                throw new Error(`Server error: ${text}`);
+            });
+        }
+    })
+    .then(data => {
+        const likeCountElement = document.getElementById(`like-count-${commentId}`);
+        const likeButton = document.querySelector(`[data-post-id="${commentId}"] i`);
 
         if (data.liked) {
             likeCountElement.textContent = `${data.likes_count} likes`;

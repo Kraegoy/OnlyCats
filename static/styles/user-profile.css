@@ -546,6 +546,26 @@ body{
     color: rgb(255, 91, 91); /* Color for liked state */
 }
 
+.post-comments-container1{
+    display: flex;
+    align-items: center;
+}
+
+
+.comment-post-button{
+    color: rgb(207, 207, 207);
+    padding: 1em;
+}
+.cat-emoji{
+    width: 1.5em;
+}
+
+
+.emoji-post-button{
+    color: rgb(207, 207, 207);
+    padding: 1em;
+    padding-right: 0;
+}
 
 
 

@@ -58,21 +58,6 @@ function showSearchView(mobile=false){
 }
 
 
-const x = `<div class="search-result">
-            <a href="{% url 'user_view' id=user_info.id %}">
-                <img src="{{ user_info.profile_picture }}" alt="User Profile Picture" class="search-profile-pic" />
-            <div class="search-username">
-                <div >Avila Kraeg</div>
-                <div class="username-light">Avila name</div>
-                {% if user in request.user.userProfile.following%}
-                <div class="username-light">Following</div>
-                {% endif %}
-            </div>
-            <a href="{% url 'user_view' id=user_info.id %}">
-        </div>
-
-`
-
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-user-input');
     const resultsContainer = document.getElementById('search-results-container');
